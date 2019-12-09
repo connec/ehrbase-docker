@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  ehrbase:
+    build: ehrbase
+    ports:
+    - 8080:8080
+    networks:
+    - ehrbase
+    environment:
+      DB_URL: jdbc:postgresql://ehrbase-postgres:5432/ehrbase
+      DB_USER: postgres
+      DB_PASS: postgres
+      OUTH2_REALM_NAME: any
+      OUTH2_CLIENT_NAME: any
+      OUTH2_SERVER_URL: any
+      SYSTEM_NAME: local
+
+  ehrbase-postgres:
+    build: ehrbase-postgres
+    networks:
+    - ehrbase
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+networks:
+  ehrbase: {}
