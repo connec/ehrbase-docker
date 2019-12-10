@@ -27,6 +27,4 @@ WORKDIR /ehrbase
 
 COPY --from=package /ehrbase/application/target/application-0.9.0.jar ehrbase-0.9.0.jar
 
-RUN mkdir -p file_repo/knowledge/archetypes file_repo/knowledge/operational_templates file_repo/knowledge/templates
-
 CMD ["java", "-Dspring.profiles.active=docker", "-jar", "ehrbase-0.9.0.jar"]

@@ -7,6 +7,8 @@ services:
     - 8080:8080
     networks:
     - ehrbase
+    volumes:
+    - ./.file_repo:/ehrbase/file_repo
     environment:
       DB_URL: jdbc:postgresql://ehrbase-postgres:5432/ehrbase
       DB_USER: postgres
@@ -20,6 +22,8 @@ services:
     build: ehrbase-postgres
     networks:
     - ehrbase
+    volumes:
+    - ./.pgdata:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
