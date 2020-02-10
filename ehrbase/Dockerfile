@@ -37,6 +37,6 @@ ARG ehrbase_version
 
 WORKDIR /ehrbase
 
-COPY --from=package /ehrbase/application/target/application-$ehrbase_version.jar ehrbase-$ehrbase_version.jar
+COPY --from=package /ehrbase/application/target/application-$ehrbase_version.jar ehrbase.jar
 
-CMD ["java", "-Dspring.profiles.active=docker", "-jar", "ehrbase-$ehrbase_version.jar"]
+CMD ["java", "-Dspring.profiles.active=docker", "-jar", "ehrbase.jar"]
